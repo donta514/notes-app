@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import { getNoteById } from "../../services/notes";
 import { toggleNoteImportance } from "../../services/notes";
 
-export const NotePage = async ({
+export default async function NotePage({
   params,
 }: {
   params: Promise<{ id: string }>;
-}) => {
+}) {
   const { id } = await params;
   const note = getNoteById(Number(id));
 
@@ -26,4 +26,4 @@ export const NotePage = async ({
       </form>
     </div>
   );
-};
+}
